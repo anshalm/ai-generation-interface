@@ -1,0 +1,65 @@
+{
+  "name": "ai-generation-interface",
+  "displayName": "AI Generation Interface",
+  "description": "Generate complete projects with AI - Next.js, React, and more",
+  "version": "1.0.0",
+  "publisher": "anshalmm",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": ["Programming Languages", "Snippets", "Other"],
+  "keywords": ["ai", "code generation", "nextjs", "react", "claude"],
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anshalmm/ai-generation-interface.git"
+  },
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [{
+        "id": "ai-code-gen",
+        "title": "AI Generation Interface",
+        "icon": "$(code)"
+      }]
+    },
+    "views": {
+      "ai-code-gen": [{
+        "type": "webview",
+        "id": "aiCodeGen.sidebar",
+        "name": "CODE",
+        "icon": "$(code)",
+        "contextualTitle": "AI Generation Interface"
+      }]
+    },
+    "configuration": {
+      "title": "AI Generation Interface",
+      "properties": {
+        "aiCodeGen.claudeApiKey": {
+          "type": "string",
+          "description": "Claude API Key for AI generation",
+          "scope": "application"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "@types/node": "18.x",
+    "typescript": "^5.0.0",
+    "@vscode/vsce": "^2.22.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.20.0"
+  }
+}
